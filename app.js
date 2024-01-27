@@ -1,5 +1,4 @@
-// console.log("Hello World");
-
+// Control Flow Exercise;
 function swap(a, b) {
     let temp = a;
     a = b;
@@ -75,8 +74,61 @@ function showProperties(obj){
     }
 }
 
-const movie = {
-    title : 'a',
-    releaseYear: 2012 kshsh
+function sum(limit){
+    let sum = 0;
+    for (let index = 1; index <= limit; index++) {
+        if(index%3 == 0 || index%5 == 0){
+            sum += index;
+        }        
+    }
+    return sum;
+}
 
+function calculateGrade(marks){
+    let avg = 0;
+    let sum = 0;
+    for (let i = 0; i < marks.length; i++) {
+        sum += marks[i];
+    }
+    avg = sum / marks.length;
+    console.log(sum);
+    console.log(avg);
+
+    if(avg < 60){
+        return 'F';
+    }else if(avg >= 60 && avg <= 69){
+        return 'D';
+    }else if(avg >= 70 && avg <= 79){
+        return 'C';
+    }else if (avg >= 80 && avg <= 89) {
+        return 'B';
+    }else if (avg >= 90 && avg <= 100) {
+        return 'A';
+    }
+}
+
+function showStars(rows){
+    for(let i=1; i<=rows; i++){
+        let pattern = '';
+        for(let j=1; j<=i ;j++){
+            pattern += '* ';
+        }
+        console.log(pattern);
+    }
+}
+
+function showPrimes(limit){
+    let boolean ;
+    for (let i = 1; i <= limit; i++) {
+        boolean = true;
+        for (let j = 2; j < i; j++) {
+            if (i % j == 0) {
+                boolean = false;
+                break;
+            }
+        }
+        if (boolean) {
+            console.log(i);
+        }
+    }
 }
