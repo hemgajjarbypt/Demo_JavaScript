@@ -150,13 +150,13 @@ function sumArr(...arr){
 
 // console.log(sumArr([1,9,7,5]));
 
-const circle = {
-    radius : 1,
-    get area(){
-        return Math.PI * this.radius * this.radius;
-    }
-};
-console.log(circle.area);
+// const circle = {
+//     radius : 1,
+//     get area(){
+//         return Math.PI * this.radius * this.radius;
+//     }
+// };
+// console.log(circle.area);
 
 // Objects
 
