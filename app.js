@@ -132,6 +132,31 @@ function showPrimes(limit) {
         }
     }
 }
+//function
+//Exercise
+
+function sum(...arr){
+    return arr.reduce((a,b) => a+b);
+}
+
+// console.log(sum(1,6,4,8));
+
+function sumArr(...arr){
+    if (arr.length === 1 && Array.isArray(arr[0])) {
+        arr = [...arr[0]];
+    }
+    return arr.reduce((a,b) => a+b);
+}
+
+// console.log(sumArr([1,9,7,5]));
+
+const circle = {
+    radius : 1,
+    get area(){
+        return Math.PI * this.radius * this.radius;
+    }
+};
+console.log(circle.area);
 
 // Objects
 
