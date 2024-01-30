@@ -135,17 +135,17 @@ function showPrimes(limit) {
 //function
 //Exercise
 
-function sum(...arr){
-    return arr.reduce((a,b) => a+b);
+function sum(...arr) {
+    return arr.reduce((a, b) => a + b);
 }
 
 // console.log(sum(1,6,4,8));
 
-function sumArr(...arr){
+function sumArr(...arr) {
     if (arr.length === 1 && Array.isArray(arr[0])) {
         arr = [...arr[0]];
     }
-    return arr.reduce((a,b) => a+b);
+    return arr.reduce((a, b) => a + b);
 }
 
 // console.log(sumArr([1,9,7,5]));
@@ -303,8 +303,8 @@ function move(array, index, offset) {
 
 // move(arr, 2, -3);
 
-function getMax(array){
-    if(array.length === 0){
+function getMax(array) {
+    if (array.length === 0) {
         return undefined;
     }
     return array.reduce((a, b) => (b > a) ? b : a);
@@ -313,11 +313,91 @@ function getMax(array){
 // console.log(getMax(arr1));
 
 const movies = [
-    {title:'a', year: 2018, rating: 4.5},
-    {title:'b', year: 2018, rating: 4.7},
-    {title:'c', year: 2018, rating: 3},
-    {title:'d', year: 2017, rating: 4.5}
+    { title: 'a', year: 2018, rating: 4.5 },
+    { title: 'b', year: 2018, rating: 4.7 },
+    { title: 'c', year: 2018, rating: 3 },
+    { title: 'd', year: 2017, rating: 4.5 }
 ]
 
 // const titles = movies.filter(m => m.year === 2018 && m.rating >= 4).sort((a,b) => a.rating - b.rating).reverse().map(m => m.title);
 // console.log(titles);
+
+//OOP-Objects
+
+//object literals
+const circle1 = {
+    radius: 1,
+    location: {
+        x: 1,
+        y: 2
+    },
+    draw() {
+        console.log("draw");
+    }
+}
+
+// console.log(circle1.draw());
+
+//factory function
+function createCircle1(radius) {
+    return {
+        radius,
+        draw: function () {
+            console.log("draw");
+        }
+    };
+}
+
+// const circle2 = createCircle1(5);
+// console.log(circle2.draw());
+
+//consturctor function
+function Circle1(radius) {
+    this.radius = radius;
+    this.draw = function () {
+        console.log("draw");
+    }
+}
+
+// const newcircle = new Circle1(5);
+// newcircle.draw();
+
+
+function Stopwatch() {
+    let startTime, endTime, running, duration = 0;
+    this.start = function () {
+        if (running) {
+            throw new Error("Stopwatch is already Started.");
+        }
+        running = true;
+
+        startTime = new Date();
+    }
+
+    this.stop = function () {
+        if (!running) {
+            throw new Error("Stopwatch is not started.");
+        }
+        running = false;
+
+        endTime = new Date();
+
+        const second = (endTime.getTime() - startTime.getTime()) / 1000;
+        duration += second;
+    };
+
+    this.reset = function(){
+        startTime = null;
+        endTime = null;
+        running = false;
+        duration = 0;
+    };
+
+    Object.defineProperty(this, 'duration', {
+        get: function () { return duration; }
+    });
+}
+
+// const sw = new Stopwatch();
+// sw.start();
+// console.log(sw.duration);
