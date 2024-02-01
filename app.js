@@ -386,7 +386,7 @@ function Stopwatch() {
         duration += second;
     };
 
-    this.reset = function(){
+    this.reset = function () {
         startTime = null;
         endTime = null;
         running = false;
